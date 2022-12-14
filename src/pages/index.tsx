@@ -8,7 +8,7 @@ export default function Home() {
         <title>Home | Herald</title>
       </Head>
 
-      <main className="flex items-center justify-between max-w-6xl mx-auto px-8">
+      <main className="flex items-center justify-between max-w-6xl h-[calc(100vh-5rem)] mx-auto px-8">
         <section className="max-w-2xl">
           <span className="text-2xl font-bold">
             Hark! We bring good tidings to you!
