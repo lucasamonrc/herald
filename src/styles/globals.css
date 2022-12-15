@@ -11,3 +11,7 @@
   border: 3px 3px 0 0;
   @apply h-[3px] w-full absolute bottom-[1px] left-0 bg-teal-500;
 }
+
+.article-link + .article-link {
+  @apply mt-8 pt-8 border-t border-t-gray-200;
+}

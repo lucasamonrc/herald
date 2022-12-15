@@ -42,11 +42,11 @@ export function Header() {
 
           <Link
             className={`inline-block relative px-2 h-20 leading-[5rem] text-gray-600 transition hover:text-black ${
-              asPath === "/posts" ? "active" : ""
+              asPath === "/stories" ? "active" : ""
             }`}
-            href="/posts"
+            href="/stories"
           >
-            Posts
+            Stories
           </Link>
         </nav>
 
