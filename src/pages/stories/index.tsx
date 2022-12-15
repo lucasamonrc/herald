@@ -10,7 +10,10 @@ export default function Stories() {
 
       <main className="max-w-6xl mx-auto px-8">
         <div className="max-w-2xl mt-20 mx-auto">
-          <Link href="/" className="block article-link hover:text-teal-500">
+          <Link
+            href="/stories/story"
+            className="block article-link hover:text-teal-500"
+          >
             <time className="text-base flex items-center text-gray-400">
               10 Jan 2023
             </time>

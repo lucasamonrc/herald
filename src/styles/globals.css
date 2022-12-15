@@ -15,3 +15,13 @@
 .article-link + .article-link {
   @apply mt-8 pt-8 border-t border-t-gray-200;
 }
+
+.postContent {
+  @apply mt-8 leading-8 text-lg text-gray-800;
+}
+
+.postContent.previewContent {
+  background: linear-gradient(rgb(31 41 55 / 1), transparent);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

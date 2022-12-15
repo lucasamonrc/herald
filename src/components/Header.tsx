@@ -29,7 +29,9 @@ export function Header() {
   return (
     <header className="h-20 border-b border-b-gray-200">
       <div className="max-w-6xl h-20 px-8 mx-auto flex items-center">
-        <Image src="/images/logo.svg" alt="Herald" width={100} height={50} />
+        <Link href="/">
+          <Image src="/images/logo.svg" alt="Herald" width={100} height={50} />
+        </Link>
         <nav className="ml-20 h-20">
           <Link
             className={`inline-block relative px-2 h-20 leading-[5rem] text-gray-600 transition hover:text-black ${
