@@ -3,12 +3,20 @@ import Image from "next/image";
 import { FiX } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { FaGithub } from "react-icons/fa";
+import { useSession, signIn, signOut } from "next-auth/react";
 
-function SignOutButton() {
+interface SignOutButtonProps {
+  username: string;
+}
+
+function SignOutButton({ username = "" }: SignOutButtonProps) {
   return (
-    <button className="ml-auto h-12 rounded-3xl bg-gray-800 px-6 flex items-center justify-center gap-2 text-white font-bold transition hover:brightness-75">
+    <button
+      className="ml-auto h-12 rounded-3xl bg-gray-800 px-6 flex items-center justify-center gap-2 text-white font-bold transition hover:brightness-75"
+      onClick={() => signOut()}
+    >
       <FaGithub color="#fff" className="w-5 h-5" />
-      lucasamonrc
+      {username}
       <FiX color="#737380" className="w-5 h-5" />
     </button>
   );
@@ -16,7 +24,10 @@ function SignOutButton() {
 
 function SignInButton() {
   return (
-    <button className="ml-auto h-12 rounded-3xl bg-gray-800 px-6 flex items-center justify-center gap-2 text-white font-bold transition hover:brightness-75">
+    <button
+      className="ml-auto h-12 rounded-3xl bg-gray-800 px-6 flex items-center justify-center gap-2 text-white font-bold transition hover:brightness-75"
+      onClick={() => signIn()}
+    >
       <FaGithub color="#2dd4bf" className="w-5 h-5" />
       Sign in with GitHub
     </button>
@@ -25,6 +36,7 @@ function SignInButton() {
 
 export function Header() {
   const { asPath } = useRouter();
+  const { data: session } = useSession();
 
   return (
     <header className="h-20 border-b border-b-gray-200">
@@ -52,8 +64,11 @@ export function Header() {
           </Link>
         </nav>
 
-        <SignInButton />
-        {/* <SignOutButton /> */}
+        {!!session ? (
+          <SignOutButton username={session.user?.name as string} />
+        ) : (
+          <SignInButton />
+        )}
       </div>
     </header>
   );
