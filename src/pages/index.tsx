@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 
+import { SubscribeButton } from "../components/SubscribeButton";
+
 export default function Home() {
   return (
     <>
@@ -22,10 +24,7 @@ export default function Home() {
             Get access to latest wholesome stories now <br />
             <span className="text-teal-400 font-bold">for only $10/month</span>.
           </p>
-          {/* <SubscribeButton priceId="1234" /> */}
-          <button className="flex mt-10 h-16 w-[260px] rounded bg-teal-400 text-white text-2xl font-bold justify-center items-center transition hover:brightness-75">
-            Subscribe Now
-          </button>
+          <SubscribeButton priceId="1234" />
         </section>
         <Image src="/images/illustration.svg" alt="" width={400} height={400} />
       </main>

@@ -1,3 +1,5 @@
+import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 
 export default function Story() {
@@ -21,3 +23,29 @@ export default function Story() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
+  const session = (await getSession({ req })) as any;
+  const { slug } = params as { slug: string };
+
+  if (!session?.activeSubscription) {
+    return {
+      redirect: {
+        destination: `/stories/preview/${slug}`,
+        permanent: false,
+      },
+    };
+  }
+
+  // get content
+  const content = "";
+
+  return {
+    props: {
+      content,
+    },
+  };
+};

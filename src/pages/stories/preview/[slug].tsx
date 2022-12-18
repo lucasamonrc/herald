@@ -1,7 +1,20 @@
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Story() {
+  const { data: session } = useSession() as any;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session?.activeSubscription) {
+      router.push(`/stories/`);
+    }
+  }, [session, router]);
+
   return (
     <>
       <Head>
@@ -35,3 +48,24 @@ export default function Story() {
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
+
+  // get content
+  const content = "";
+
+  return {
+    props: {
+      content,
+    },
+    revalidate: 1800,
+  };
+};
