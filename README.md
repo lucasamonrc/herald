@@ -6,7 +6,7 @@ A simple news website that requires user to pay a subscription in order to view 
 
 - [Next.js](https://nextjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Firebase](https://firebase.com/)
+- [Supabase](https://www.supabase.com/)
 - [Stripe](https://stripe.com/)
 - [Prismic](https://prismic.io/)
 - [TailwindCSS](https://tailwindcss.com/)
