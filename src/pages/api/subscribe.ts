@@ -28,6 +28,8 @@ const subscribe = async (
         .from("users")
         .update({ stripe_customer_id: stripeCustomer.id })
         .eq("id", data.id);
+
+      customerId = stripeCustomer.id;
     }
 
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
