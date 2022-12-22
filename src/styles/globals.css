@@ -20,8 +20,58 @@
   @apply mt-8 leading-8 text-lg text-gray-800;
 }
 
-.postContent.previewContent {
-  background: linear-gradient(rgb(31 41 55 / 1), transparent);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Post styling */
+.postContent h1 {
+  @apply text-5xl font-bold leading-loose;
+}
+
+.postContent h2 {
+  @apply text-4xl font-bold leading-relaxed;
+}
+
+.postContent h3 {
+  @apply text-3xl font-bold leading-relaxed;
+}
+
+.postContent h4 {
+  @apply text-2xl font-bold leading-relaxed;
+}
+
+.postContent h5 {
+  @apply text-xl font-bold leading-relaxed;
+}
+
+.postContent h6 {
+  @apply font-bold leading-relaxed;
+}
+
+.postContent p,
+ul,
+pre,
+ol {
+  @apply mb-3;
+}
+
+.postContent a {
+  @apply text-teal-500 underline;
+}
+
+.postContent img {
+  @apply block mx-auto my-4;
+}
+
+.postContent a {
+  @apply visited:text-teal-700;
+}
+
+.postContent blockquote {
+  @apply font-light italic border-l-2 border-l-teal-500 pl-4 text-gray-500 mb-4;
+}
+
+.postContent :not(pre) > code {
+  @apply text-base font-mono p-1 rounded border border-gray-700 bg-gray-300;
+}
+
+.postContent pre {
+  @apply text-base font-mono py-2 px-4 rounded border border-gray-700 bg-gray-300;
 }
