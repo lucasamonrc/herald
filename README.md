@@ -8,7 +8,9 @@ A simple news website that requires user to pay a subscription in order to view 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Supabase](https://www.supabase.com/)
 - [Stripe](https://stripe.com/)
-- [Prismic](https://prismic.io/)
+- [Hygraph](https://hygraph.com/)
+- [Apollo](https://www.apollographql.com/)
+- [GraphQL](https://graphql.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 
 ## 🛠 Setup
