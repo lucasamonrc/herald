@@ -16,7 +16,9 @@ In other words, I built Herald because I thought it could be an interesting chal
 
 https://user-images.githubusercontent.com/53352488/209422366-e258b3fa-7b32-493c-a09e-48d09e04543a.mp4
 
-Here you should also include a link that takes the reader to your project's distribution (e.g. a download link, a live version link, an API documentation page, etc.) If your project runs on a terminal, it is a package that must 
+#### Unsubscribed User Use-case
+
+https://user-images.githubusercontent.com/53352488/209422540-65e22c11-6815-4644-8afd-c0e2a595b237.mp4
 
 ## 🚀 Technology Stack
 
@@ -29,16 +31,44 @@ Here you should also include a link that takes the reader to your project's dist
 - [GraphQL](https://graphql.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 
-A summarized list of each relevant technology being used in the project with links to their respective website. You can also make mention on how these technologies are being used on a summarized paragraph underneath the list.
+Next.js is the main engine of this project and the framework of choice for building an SSR web app in React + TypeScript. Supabase provides our underlying back-end with its nice relational cloud database. Stripe is our payment services, and Hygraph our CMS powered by GraphQL.
 
 ### Trade-offs Considered
 
-Justify the use the technologies and make mention of 3-5 problems you encountered while building this and what you did to solve them. Consider some of the trade-offs you had to make when solving these problems.
+For the BaaS (Backend as a Service) provider, the original choice was Firebase; however, due to the complexity in the docs and how difficult would be to model the data using the non-relational data and Firestore, Supabase proved to be a very efficient alternative with virtually no losses. This choice was essentially based on preference.
+
+The CMS portion of this project was the last to be implemented. At first I thought it would be the simplest service to add, since I had no problems in leveraging Prismic as a headless CMS in the past. I was surprised by how much Prismic has changed over the past years and setting up a simple blog was a hassle. Their new flows are also imcompatible with pnpm, so I decided to try something new. The other options for more tradiotional headless CMS were either paid or self-hosted, so I landed on Hygraph with its simplistic UI and service. It is still a headless CMS but its contents are served over GraphQL instead of the typical REST used by CMS such as strapi, prismic, contentful, etc.
 
 ## ⚙️ Setup Instructions
- 
-Guide the user, step by step on how to set up a local development environment of this projects on their own machines. Include a list of pre-requisites that won't be covered (if its applicable). Where relevant include usage examples of any scripts that are necessary for the development workflow. Guide them through the flow of implementing a basic feature, or fixing a simple bug. Add instructions on how to run tests if applicable.
+
+This project uses pnpm for dependency management. Follow the steps below to set up a local development environment.
+
+Clone this repository:
+
+```sh
+git clone https://github.com/lucasamonrc/herald.git
+```
+
+Navigate to the repository and install project dependencies:
+
+```sh
+cd herald
+pnpm i
+```
+
+Copy the `example.env` to a new file named `.env.local`
+
+```sh
+cp example.env .env.local
+```
+
+You will need to set up your own project secrets to have all services working. Once you do you can start the project:
+
+```sh
+pnpm build
+pnpm start
+```
 
 ## 🧑‍💻 Authors
 
-- First Last ([@username](https://github.com/)) | [website.com]() 
+- Lucas Castro ([@lucasamonrc](https://github.com/lucasamonrc)) | [lucasamonrc.dev](https://lucasamonrc.dev) 
